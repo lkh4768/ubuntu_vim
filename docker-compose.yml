@@ -1,11 +1,9 @@
 version: '2'
 services:
  vim:
-  build: ./
-  image: ubuntu_vim
+  image: wes4768/ubuntu_vim
   container_name: vim
   ports:
    - "2022:22"
   environment:
-   - USER_NAME=aaa
-   - USER_PASS=aaa
+   - USER_NAME=lab
