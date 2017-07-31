@@ -31,12 +31,14 @@ then
 	USER_NAME="user"
 fi
 
+#set user password
 useradd -m -s /bin/bash $USER_NAME
 if [ ! "$USER_PASS" ]
 then
 	USER_PASS=`date +%s | sha256sum | base64 | head -c 32`
 fi
 
+# show user password
 echo "$USER_NAME""'s password: ""$USER_PASS"
 echo "$USER_NAME:$USER_PASS" | chpasswd
 
@@ -48,11 +50,10 @@ mkdir ~/.vim/colors
 cp -f /distinguished.vim ~/.vim/colors
 vim +PluginInstall +qall +qa
 
-# cp vim plugin to USER
+# cp vim plugin to USER_NAME
 USER_HOME="/home/""$USER_NAME""/"
 cp -r ~/.vim $USER_HOME
 cp ~/.vimrc $USER_HOME
-
 chown -R $USER_NAME:$USER_NAME $USER_HOME
 
 exec "$@"
