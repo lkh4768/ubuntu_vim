@@ -1,6 +1,6 @@
 # ubuntu_vim docker-image
 
-Development environment using vim editor (python, c ++, c, golang)
+Development environment using vim editor (python, c++, c, golang)
 
 ## Quick Start
 
@@ -9,17 +9,19 @@ $ docker run -d -p 22:22 --name=vim wes4768/ubuntu_vim
 ```
 
 default username and userpass :
-	- username : user
-	- password : show `docker logs <container-name>`
+- username : `user`
+- password : random, show `docker logs <container-name>`
 
 	```
 	$ docker logs vim
-	user's password: YmQ5YmYwZjQzZWFlM2JjNmMyN2ZiNDdh
+	/* user's password */
+	user's password: YmQ5YmYwZjQzZWFlM2JjNmMyN2ZiNDdh 
 	Cloning into '/root/.vim/bundle/Vundle.vim'...
 	...
 	```
-## setting username and user's password and start
 	
+### setting username and user's password and start
+
 ```
 $ docker run -d -p 22:22 -e USER_NAME="test" -e USER_PASS="test1" --name=vim wes4768/ubuntu_vim
 ```
