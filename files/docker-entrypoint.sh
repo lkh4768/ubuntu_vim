@@ -52,6 +52,7 @@ vim +PluginInstall +qall +qa
 
 # cp vim plugin to USER_NAME
 USER_HOME="/home/""$USER_NAME""/"
+echo "git config --global http.sslVerify false" >> "$USER_HOME"".bashrc"
 cp -r ~/.vim $USER_HOME
 cp ~/.vimrc $USER_HOME
 chown -R $USER_NAME:$USER_NAME $USER_HOME
