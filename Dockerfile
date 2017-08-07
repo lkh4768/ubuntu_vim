@@ -1,7 +1,11 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends software-properties-common python-software-properties \
+	&& add-apt-repository ppa:jonathonf/vim \
+	&& apt-get install -y --no-install-recommends \
 	build-essential \
+	curl \
 	cmake \
 	ctags \
 	git \
@@ -15,7 +19,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang \
 	libncurses5-dev \
 	libncursesw5-dev \
-	vim-nox \
+	ca-certificates \
+	openssl \
+	vim \
 	&& rm -rf /var/lib/apt/lists/* \
 # config sshd
 	&& mkdir /var/run/sshd \
