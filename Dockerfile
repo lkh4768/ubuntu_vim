@@ -2,7 +2,8 @@ FROM ubuntu
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends software-properties-common python-software-properties \
-	&& add-apt-repository ppa:jonathonf/vim \
+	&& add-apt-repository -y ppa:jonathonf/vim \
+	&& add-apt-repository -y ppa:longsleep/golang-backports \
 	&& apt-get install -y --no-install-recommends \
 	man-db \
 	manpages \
