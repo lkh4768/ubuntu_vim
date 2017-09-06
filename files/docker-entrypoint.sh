@@ -155,4 +155,20 @@ cp -f -r ~/.vim $USER_HOME
 cp -f ~/.vimrc $USER_HOME
 chown -R $USER_NAME:$USER_NAME $USER_HOME
 
+# install hugo v0.26
+file_env 'INSTALL_HUGO'
+if [ ! "$INSTALL_HUGO" ]
+then
+	INSTALL_HUGO="false"
+fi
+
+if [ "$INSTALL_HUGO" == "true" ]
+then
+	HUGO_DEB=hugo_0.26_Linux-64bit.deb
+	cd /tmp
+	wget https://github.com/gohugoio/hugo/releases/download/v0.26/$HUGO_DEB
+	dpkg -i $HUGO_DEB
+	rm $HUGO_DEB
+fi
+
 exec "$@"
