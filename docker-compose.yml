@@ -8,3 +8,4 @@ services:
    - "30022:22"
   environment:
    - USER_NAME=lab
+     #- INSTALL_HUGO=true
