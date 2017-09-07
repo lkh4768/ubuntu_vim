@@ -155,6 +155,7 @@ cp -f -r ~/.vim $USER_HOME
 cp -f ~/.vimrc $USER_HOME
 chown -R $USER_NAME:$USER_NAME $USER_HOME
 
+# install hugo v0.26
 file_env 'HUGO_INSTALL'
 if [ ! "$HUGO_INSTALL" ]
 then

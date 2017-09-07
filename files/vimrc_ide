@@ -184,3 +184,6 @@ let g:ycm_warning_symbol = '>*'
 " nnoremap d :YcmCompleter GoToDeclaration 
 " nnoremap t :YcmCompleter GetType 
 " nnoremap p :YcmCompleter GetParent 
+
+" ----- vim-go settings -----
+let g:go_fmt_command = "goimports"
