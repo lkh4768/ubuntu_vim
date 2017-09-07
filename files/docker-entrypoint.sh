@@ -155,4 +155,21 @@ cp -f -r ~/.vim $USER_HOME
 cp -f ~/.vimrc $USER_HOME
 chown -R $USER_NAME:$USER_NAME $USER_HOME
 
+file_env 'HUGO_INSTALL'
+if [ ! "$HUGO_INSTALL" ]
+then
+	HUGO_INSTALL="false"
+fi
+
+if [ "$HUGO_INSTALL" == "true" ]
+then
+	IS_EXIST_HUGO=`dpkg --get-selections | grep hugo`
+	if [ -z "$IS_EXIST_HUGO" ]
+	then
+		cd /tmp
+		wget $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep 'browser_' | grep 'Linux-64bit.deb' | cut -d\" -f4)
+		dpkg -i hugo*Linux-64bit.deb
+	fi
+fi
+
 exec "$@"

@@ -42,4 +42,5 @@ COPY files/ycm_extra_conf.py /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 22
+EXPOSE 1313
 CMD    ["/usr/sbin/sshd", "-D"]
