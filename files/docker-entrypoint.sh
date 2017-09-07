@@ -156,19 +156,21 @@ cp -f ~/.vimrc $USER_HOME
 chown -R $USER_NAME:$USER_NAME $USER_HOME
 
 # install hugo v0.26
-file_env 'INSTALL_HUGO'
-if [ ! "$INSTALL_HUGO" ]
+file_env 'HUGO_INSTALL'
+if [ ! "$HUGO_INSTALL" ]
 then
-	INSTALL_HUGO="false"
+	HUGO_INSTALL="false"
 fi
 
-if [ "$INSTALL_HUGO" == "true" ]
+if [ "$HUGO_INSTALL" == "true" ]
 then
-	HUGO_DEB=hugo_0.26_Linux-64bit.deb
-	cd /tmp
-	wget https://github.com/gohugoio/hugo/releases/download/v0.26/$HUGO_DEB
-	dpkg -i $HUGO_DEB
-	rm $HUGO_DEB
+	IS_EXIST_HUGO=`dpkg --get-selections | grep hugo`
+	if [ -z "$IS_EXIST_HUGO" ]
+	then
+		cd /tmp
+		wget $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep 'browser_' | grep 'Linux-64bit.deb' | cut -d\" -f4)
+		dpkg -i hugo*Linux-64bit.deb
+	fi
 fi
 
 exec "$@"
