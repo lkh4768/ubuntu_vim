@@ -29,7 +29,7 @@ $ docker run -d -p 22:22 -e USER_NAME="test" -e USER_PASS="test1" --name=vim wes
 ### install golang
 
 ```
-$ docker run -d -p 22:22 -p 1313:1313 -e GO_INSTALL="true" --name=vim wes4768/ubuntu_vim
+$ docker run -d -p 22:22 -p 1313:1313 -e GOLANG_INSTALL="true" --name=vim wes4768/ubuntu_vim
 ```
 
 ## Available Configuration Parameters
