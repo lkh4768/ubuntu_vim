@@ -26,19 +26,18 @@ Cloning into '/root/.vim/bundle/Vundle.vim'...
 $ docker run -d -p 22:22 -e USER_NAME="test" -e USER_PASS="test1" --name=vim wes4768/ubuntu_vim
 ```
 
-### install hugo
+### install golang
 
 ```
-$ docker run -d -p 22:22 -p 1313:1313 -e HUGO_INSTALL="true" --name=vim wes4768/ubuntu_vim
+$ docker run -d -p 22:22 -p 1313:1313 -e GO_INSTALL="true" --name=vim wes4768/ubuntu_vim
 ```
 
 ## Available Configuration Parameters
 
 - USER_NAME: The os user. Default `user`.
 - USER_PASS: The os user's password. Default `user's password: <USER_PASS>` in `docker logs <container-name>`.
-- HUGO_INSTALL: Install hugo. Default false.
+- GOLANG_INSTALL: Install hugo. Default false.
 
 ## Export Port
 
 - 22: connecting sshd
-- 1313: binding hugo server
