@@ -9,4 +9,4 @@ services:
    - "1313:1313"
   environment:
    - USER_NAME=lab
-   - HUGO_INSTALL=true
+   - GOLANG_INSTALL=true

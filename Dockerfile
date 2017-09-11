@@ -3,7 +3,6 @@ FROM ubuntu
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends software-properties-common python-software-properties \
 	&& add-apt-repository -y ppa:jonathonf/vim \
-	&& add-apt-repository -y ppa:longsleep/golang-backports \
 	&& apt-get install -y --no-install-recommends \
 	man-db \
 	manpages \
@@ -19,7 +18,6 @@ RUN apt-get update \
 	python \
 	python-dev \
 	python3-dev \
-	golang \
 	openssh-server \
 	mercurial \
 	clang \
@@ -42,5 +40,4 @@ COPY files/ycm_extra_conf.py /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 22
-EXPOSE 1313
 CMD    ["/usr/sbin/sshd", "-D"]
