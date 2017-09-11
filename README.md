@@ -36,7 +36,7 @@ $ docker run -d -p 22:22 -p 1313:1313 -e GOLANG_INSTALL="true" --name=vim wes476
 
 - USER_NAME: The os user. Default `user`.
 - USER_PASS: The os user's password. Default `user's password: <USER_PASS>` in `docker logs <container-name>`.
-- GOLANG_INSTALL: Install hugo. Default false.
+- GOLANG_INSTALL: Install golang. Default false.
 
 ## Export Port
 
