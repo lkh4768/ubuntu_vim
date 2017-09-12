@@ -90,7 +90,7 @@ then
 	VIM_AUTOLOAD_PATH="$HOME/.vim/autoload"
 	VIM_GO_PATH="vim-go"
 
-	if [ -e "GOROOT" ]
+	if [ -e "$GOROOT" ]
 	then
 		echo "= Already golang($GOROOT) exists ="
 	else
@@ -162,6 +162,13 @@ then
 		echo "export GOPATH=\$HOME/golang" >> "$USER_HOME.bashrc"
 	else
 		echo "= Already add GOPATH in $USER_HOME.bashrc ="
+	fi
+
+	if [ -z "$(grep "GOROOT=$GOROOT" $USER_HOME.bashrc)" ]
+	then
+		echo "export GOROOT=$GOROOT" >> "$USER_HOME.bashrc"
+	else
+		echo "= Already add GOROOT in $USER_HOME.bashrc ="
 	fi
 
 	if [ -z "$(grep "PATH=\\\$PATH:\\\$GOPATH/bin:\\\$GOROOT/bin" $USER_HOME.bashrc)" ]
