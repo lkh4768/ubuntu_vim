@@ -1,6 +1,6 @@
 # ubuntu_vim docker-image
 
-Development environment using vim editor (python, c++, c, golang, hugo)
+Development environment using vim editor (python, c++, c, golang)
 
 ## Quick Start
 
